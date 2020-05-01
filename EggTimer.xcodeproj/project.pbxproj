@@ -21,8 +21,8 @@
 		9E070DE8245BC49D001F14BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E070DEB245BC49D001F14BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E070DED245BC49D001F14BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E070DEE245BC49D001F14BF /* EggTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggTimer.entitlements; sourceTree = "<group>"; };
 		9E070DF4245BCE76001F14BF /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
+		9E070DFA245BD48E001F14BF /* EggTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggTimer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,15 +55,39 @@
 		9E070DE3245BC49C001F14BF /* EggTimer */ = {
 			isa = PBXGroup;
 			children = (
+				9E070DFC245BD537001F14BF /* Supporting Files */,
+				9E070DF7245BD45E001F14BF /* Model */,
 				9E070DE4245BC49C001F14BF /* AppDelegate.swift */,
-				9E070DE6245BC49C001F14BF /* ViewController.swift */,
-				9E070DF4245BCE76001F14BF /* PrefsViewController.swift */,
+				9E070DF6245BD421001F14BF /* View Controllers */,
 				9E070DE8245BC49D001F14BF /* Assets.xcassets */,
 				9E070DEA245BC49D001F14BF /* Main.storyboard */,
-				9E070DED245BC49D001F14BF /* Info.plist */,
-				9E070DEE245BC49D001F14BF /* EggTimer.entitlements */,
 			);
 			path = EggTimer;
+			sourceTree = "<group>";
+		};
+		9E070DF6245BD421001F14BF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E070DE6245BC49C001F14BF /* ViewController.swift */,
+				9E070DF4245BCE76001F14BF /* PrefsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9E070DF7245BD45E001F14BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E070DFC245BD537001F14BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E070DFA245BD48E001F14BF /* EggTimer.entitlements */,
+				9E070DED245BC49D001F14BF /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +122,11 @@
 				TargetAttributes = {
 					9E070DE0245BC49C001F14BF = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -275,11 +304,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EggTimer/EggTimer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "EggTimer/Supporting Files/EggTimer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T57C36N347;
-				INFOPLIST_FILE = EggTimer/Info.plist;
+				INFOPLIST_FILE = "EggTimer/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -294,11 +323,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EggTimer/EggTimer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "EggTimer/Supporting Files/EggTimer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T57C36N347;
-				INFOPLIST_FILE = EggTimer/Info.plist;
+				INFOPLIST_FILE = "EggTimer/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
