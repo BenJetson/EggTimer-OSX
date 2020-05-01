@@ -12,6 +12,7 @@
 		9E070DE9245BC49D001F14BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E070DE8245BC49D001F14BF /* Assets.xcassets */; };
 		9E070DEC245BC49D001F14BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E070DEA245BC49D001F14BF /* Main.storyboard */; };
 		9E070DF5245BCE76001F14BF /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E070DF4245BCE76001F14BF /* PrefsViewController.swift */; };
+		9E070DFE245BD5F9001F14BF /* EggTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E070DFD245BD5F9001F14BF /* EggTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		9E070DED245BC49D001F14BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E070DF4245BCE76001F14BF /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		9E070DFA245BD48E001F14BF /* EggTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggTimer.entitlements; sourceTree = "<group>"; };
+		9E070DFD245BD5F9001F14BF /* EggTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		9E070DF7245BD45E001F14BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E070DFD245BD5F9001F14BF /* EggTimer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E070DE7245BC49C001F14BF /* ViewController.swift in Sources */,
+				9E070DFE245BD5F9001F14BF /* EggTimer.swift in Sources */,
 				9E070DF5245BCE76001F14BF /* PrefsViewController.swift in Sources */,
 				9E070DE5245BC49C001F14BF /* AppDelegate.swift in Sources */,
 			);
