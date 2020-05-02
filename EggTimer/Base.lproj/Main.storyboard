@@ -62,19 +62,19 @@
                             </menuItem>
                             <menuItem title="Timer" id="cac-K7-9np">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Timer" id="GOJ-S4-fiB">
+                                <menu key="submenu" title="Timer" autoenablesItems="NO" id="GOJ-S4-fiB">
                                     <items>
                                         <menuItem title="Start" keyEquivalent="s" id="oz8-53-xKw">
                                             <connections>
                                                 <action selector="startTimerMenuItemSelected:" target="Ady-hI-5gd" id="apA-wM-oOh"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Stop" keyEquivalent="x" id="Csa-Xi-GZZ">
+                                        <menuItem title="Stop" enabled="NO" keyEquivalent="x" id="Csa-Xi-GZZ">
                                             <connections>
                                                 <action selector="stopTimerMenuItemSelected:" target="Ady-hI-5gd" id="An3-UC-sLq"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Reset" keyEquivalent="r" id="Lxf-PB-N6N">
+                                        <menuItem title="Reset" enabled="NO" keyEquivalent="r" id="Lxf-PB-N6N">
                                             <connections>
                                                 <action selector="resetTimerMenuItemSelected:" target="Ady-hI-5gd" id="cmP-RA-DTH"/>
                                             </connections>
