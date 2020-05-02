@@ -29,6 +29,7 @@
 		9E070DFD245BD5F9001F14BF /* EggTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggTimer.swift; sourceTree = "<group>"; };
 		9E08CBA5245D00D100FA5B1B /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		9E08CBA7245D3B8500FA5B1B /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
+		9E08CBA9245D407C00FA5B1B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +46,7 @@
 		9E070DD8245BC49C001F14BF = {
 			isa = PBXGroup;
 			children = (
+				9E08CBA9245D407C00FA5B1B /* README.md */,
 				9E070DE3245BC49C001F14BF /* EggTimer */,
 				9E070DE2245BC49C001F14BF /* Products */,
 			);
