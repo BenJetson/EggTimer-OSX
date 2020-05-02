@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AVFoundation
 
 class ViewController: NSViewController {
     @IBOutlet weak var timeLeftField: NSTextField!
@@ -16,12 +17,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var resetButton: NSButton!
     
     var eggTimer = EggTimer()
+    var prefs = Preferences()
+    var soundPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         eggTimer.delegate = self
+        setupPrefs()
+        prepareSound()
     }
 
     override var representedObject: Any? {
@@ -34,7 +39,7 @@ class ViewController: NSViewController {
         if eggTimer.isPaused {
             eggTimer.resumeTimer()
         } else {
-            eggTimer.duration = 360
+            eggTimer.duration = prefs.selectedTime
             eggTimer.startTimer()
         }
         
@@ -48,7 +53,7 @@ class ViewController: NSViewController {
     
     @IBAction func resetButtonClicked(_ sender: Any) {
         eggTimer.resetTimer()
-        updateDisplay(for: 360)
+        updateDisplay(for: prefs.selectedTime)
         configureButtonsAndMenus()
     }
     
@@ -72,6 +77,8 @@ extension ViewController: EggTimerProtocol {
     
     func timerHasFinished(_ timer: EggTimer) {
         updateDisplay(for: 0)
+        playSound()
+        setButtonsAndMenusState(start: false, stop: false, reset: true)
     }
 }
 
@@ -102,7 +109,7 @@ extension ViewController {
             return NSImage(named: imageName)
         }
         
-        let percentageComplete = 100 - (timeRemaining / 360 * 100)
+        let percentageComplete = 100 - (timeRemaining / eggTimer.duration * 100)
         
         switch percentageComplete {
         case 0 ..< 25:
@@ -118,6 +125,18 @@ extension ViewController {
         }
         
         return NSImage(named: imageName)
+    }
+    
+    func setButtonsAndMenusState(start enableStart: Bool, stop enableStop: Bool, reset enableReset: Bool) {
+        startButton.isEnabled = enableStart
+        stopButton.isEnabled = enableStop
+        resetButton.isEnabled = enableReset
+        
+        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+            appDelegate.enableMenus(start: enableStart,
+                                    stop: enableStop,
+                                    reset: enableReset)
+        }
     }
     
     func configureButtonsAndMenus() {
@@ -139,14 +158,62 @@ extension ViewController {
             enableReset = false
         }
         
-        startButton.isEnabled = enableStart
-        stopButton.isEnabled = enableStop
-        resetButton.isEnabled = enableReset
+        setButtonsAndMenusState(start: enableStart, stop: enableStop, reset: enableReset)
+    }
+}
+
+extension ViewController {
+    func setupPrefs() {
+        updateDisplay(for: prefs.selectedTime)
         
-        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
-            appDelegate.enableMenus(start: enableStart,
-                                    stop: enableStop,
-                                    reset: enableReset)
+        let notificationName = Notification.Name(rawValue: "PrefsChanged")
+        NotificationCenter.default.addObserver(forName: notificationName,
+                                               object: nil,
+                                               queue: nil,
+                                               using: self.checkForResetAfterPrefsChanged)
+    }
+    
+    func checkForResetAfterPrefsChanged(_: Notification) {
+        if eggTimer.isStopped || eggTimer.isPaused {
+            updateFromPrefs()
+            return
         }
+        
+        let alert = NSAlert()
+        alert.messageText = "Reset timer with new settings?"
+        alert.informativeText = "This will reset the current timer, losing the existing elapsed time."
+        alert.alertStyle = .warning
+        
+        alert.addButton(withTitle: "Reset")
+        alert.addButton(withTitle: "Cancel")
+        
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn {
+            self.updateFromPrefs()
+        }
+    }
+    
+    func updateFromPrefs() {
+        self.eggTimer.duration = self.prefs.selectedTime
+        self.resetButtonClicked(self)
+    }
+}
+
+extension ViewController {
+    func prepareSound() {
+        guard let audioFileURL = Bundle.main.url(forResource: "ding", withExtension: "mp3") else {
+            return
+        }
+        
+        do {
+            soundPlayer = try AVAudioPlayer(contentsOf: audioFileURL)
+            soundPlayer?.prepareToPlay()
+        } catch {
+            print("Sound player not available: \(error)")
+        }
+    }
+    
+    func playSound() {
+        soundPlayer?.play()
     }
 }
