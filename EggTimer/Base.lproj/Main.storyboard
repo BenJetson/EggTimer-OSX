@@ -222,8 +222,8 @@
                                 <rect key="frame" x="20" y="80" width="306" height="371"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zlc-Tc-iYO">
-                                        <rect key="frame" x="54" y="254" width="199" height="117"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="6:00" id="8Pd-ag-NdX">
+                                        <rect key="frame" x="26" y="254" width="255" height="117"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="06:00" id="8Pd-ag-NdX">
                                             <font key="font" size="100" name="HelveticaNeue"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -384,7 +384,7 @@ DQ
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97u-22-FhZ">
                                 <rect key="frame" x="18" y="66" width="378" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="1" maxValue="25" doubleValue="6" tickMarkPosition="above" numberOfTickMarks="25" allowsTickMarkValuesOnly="YES" sliderType="linear" id="lBV-QD-2bk"/>
+                                <sliderCell key="cell" continuous="YES" enabled="NO" state="on" alignment="left" minValue="1" maxValue="25" doubleValue="6" tickMarkPosition="above" numberOfTickMarks="25" allowsTickMarkValuesOnly="YES" sliderType="linear" id="lBV-QD-2bk"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" target="hem-Xr-GY8" id="Ojb-PV-FI7"/>
                                 </connections>
